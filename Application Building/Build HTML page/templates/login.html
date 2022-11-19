@@ -1,189 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
+<html >
 <head>
-    <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <style>
-     * {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial- scale=1">
+<title>Virtual Eye</title>
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'
+type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet'
+type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet'
+type='text/css'>
+<link
+href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300'
+rel='stylesheet' type='text/css'>
+<!link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link
+href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<style>
+.header {
+top:0;
+margin:0px;
+left: 0px;
+right: 0px;
+position: fixed;
+background-color:#4c9e9e;
+color: white;
+box-shadow: 0px 8px 4px grey;
+overflow: hidden;
+padding-left:20px;
+font-family: 'Josefin Sans';
+font-size: 2vw;
+width: 100%;
+height:8%;
+text-align: center;
+}
+.topnav {
+overflow: hidden;
+background-color: #333;
+}
+.topnav-right a {
+float: left;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-size: 18px;
+}
+.topnav-right a:hover {
+background-color: #ddd;
+color: black;
+}
+.topnav-right a.active {
+background-color: #565961;
+color: white;
+}
+.topnav-right {
+float: right;
+padding-right:100px;
+}
+.login{
+margin-top:-70px;
 }
 body {
- font-family: cursive;
+background-color:#ffffff;
+background-repeat: no-repeat;
+background-size:cover;
+background-position: 0px 0px;
 }
-a {
- text-decoration: none;
+.login{
+margin-top:100px;
 }
-li {
- list-style: none;
+form {border: 3px solid #f1f1f1; margin-left:400px;margin-right:400px;}
+input[type=text],
+input[type=email],input[type=number],input[type=password] {
+width: 100%;
+padding: 12px 20px;
+display: inline-block;
+margin-bottom:18px;
+border: 1px solid #ccc;
+box-sizing: border-box;
 }
-.navbar {
- display: flex;
- align-items: center;
- justify-content: space-between;
- padding: 20px;
- background-color: teal;
- color: #fff;
+button {
+background-color: #4c9e9e;
+color: white;
+padding: 14px 20px;
+margin-bottom:8px;
+border: none;
+cursor: pointer;
+width: 100%;
+font-weight:bold;
 }
-.nav-links a {
- color: #fff;
+button:hover {
+opacity: 0.8;
 }
-/* LOGO */
-.logo {
- font-size: 32px;
+.cancelbtn {
+width: auto;
+padding: 10px 18px;
+background-color: #f44336;
 }
-/* NAVBAR MENU */
-.menu {
- display: flex;
- gap: 1em;
- font-size: 18px;
+.imgcontainer {
+text-align: center;
+margin: 24px 0 12px 0;
 }
-.menu li:hover {
- background-color: #4c9e9e;
- border-radius: 5px;
- transition: 0.3s ease;
+img.avatar {
+width: 30%;
+border-radius: 50%;
 }
-.menu li {
- padding: 5px 14px;
-}
-.services {
- position: relative;
-}
-.dropdown {
- background-color: rgb(1, 139, 139);
- padding: 1em 0;
- position: absolute; /*WITH RESPECT TO PARENT*/
- display: none;
- border-radius: 8px;
- top: 35px;
-}
-.dropdown li + li {
- margin-top: 10px;
-}
-.dropdown li {
- padding: 0.5em 1em;
- width: 8em;
- text-align: center;
-}
-.dropdown li:hover {
- background-color: #4c9e9e;
-}
-.footer {
-  background-color: none;
-  text-align: center;
-  padding: 10px;
-}
-.services:hover .dropdown {
- display: block;
-}
-#example1 {
-  background: url(swim.jpg);
-
-}
-    <title>Title</title>
-  <style>
-    * {box-sizing: border-box}
-
-/* Add padding to containers */
 .container {
-  padding: 15px;
+padding: 16px;
 }
-
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
+span.psw {
+float: right;
+padding-top: 16px;
 }
-
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
+@media screen and (max-width: 300px) {
+span.psw {
+display: block;
+float: none;
 }
-
-/* Overwrite default styles of hr */
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
+.cancelbtn {
+width: 100%;
 }
-
-/* Set a style for the submit/register button */
-.registerbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
 }
-
-.registerbtn:hover {
-  opacity:1;
-}
-
-/* Add a blue text color to links */
-a {
-  color: dodgerblue;
-}
-
-/* Set a grey background color and center the text of the "sign in" section */
-.signin {
-  background-color: #f1f1f1;
-  text-align: center;
-}
-
-  </style>
+</style>
 </head>
-<body>
-<nav class="navbar">
-     <!-- LOGO -->
-     <div class="logo">VIRTUAL EYE</div>
-     <!-- NAVIGATION MENU -->
-     <ul class="nav-links">
-       <!-- USING CHECKBOX HACK -->
-
-       <div class="menu">
-         <li><a href="C:\Users\Admin\Desktop\YOLO\templates\index.html">Home</a></li>
-         <li><a href="C:\Users\Admin\Desktop\YOLO\templates/register.html">Register</a></li>
-         <li><a href="C:\Users\Admin\Desktop\YOLO\templates/login.html">Login</a></li>
-       </div>
-     </ul>
-   </nav>
-<form>
-  <div class="container">
-<center>
-    <h1>LOGIN</h1>
-    <p>Login with your credentials.</p>
-    <hr>
-
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-
-
-    <p><a href="C:\Users\Admin\Desktop\YOLO\templates\prediction.html" class="registerbtn">LOGIN</a>.</p>
-  </center>
+<body style="font-family:Montserrat;">
+<div class="header">
+<div style="width:50%;float:left;font-size:2vw;text-align:left;color:white; paddingtop:1%">Virtual Eye</div>
+<div class="topnav-right" style="padding-top:0.5%;">
+<a href="C:\Users\Admin\Desktop\YOLO\testing\index.html">Home</a>
+<a class="active" href="C:\Users\Admin\Desktop\YOLO\testing\login_madhan.html">Login</a>
+<a href="C:\Users\Admin\Desktop\YOLO\testing\register_madhan.html">Register</a>
 </div>
-
-
+</div>
+<div id="login" class="login">
+<form action="C:\Users\Admin\Desktop\YOLO\Code\app.py" method="post">
+<div class="imgcontainer">
+<img style=""
+src="C:\Users\Admin\Desktop\YOLO\static\eye.png" alt="Avatar" class="avatar">
+</div>
+<div class="container">
+<input type="email" placeholder="Enter registered email ID" name="_id"
+required><br>
+<input type="password" placeholder="Enter Password" name="psw" required>
+<button type="submit">Login</button><br>
+</div>
 </form>
-<div class="footer">
-<br><br><br>
-  <p id="copyrights" style="color: #4c9e9e; font-size:20px;"></p>
-
-<script>
-    const d = new Date();
-   document.getElementById("copyrights").innerHTML ="Copyright © "+ d.getFullYear();
-</script>
 </div>
 </body>
 </html>
